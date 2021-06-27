@@ -131,6 +131,7 @@ export class ExpertForm extends Component {
               <Modal.Body>
                 {/* Woohoo, you're reading this text in a modal!  */}
               {this._rules_8()}
+              {this._rules_9()}
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
@@ -232,8 +233,17 @@ export class ExpertForm extends Component {
     _rules_6(){ 
       let result = undefined; 
 
-      if(this.state.range_of_growth === "grow_more_than_2_weeks"){ 
+      if(this.state.range_of_growth === "grow_more_than_2_weeks" || this.state.range_of_growth === "grow_more_than_4_months"){ 
           result = "plant_has_long_growth_rate"; 
+      }
+      return result;
+    }
+
+    _rules_7(){ 
+      let result = undefined; 
+
+      if(this.state.range_of_growth === "grow_less_than_2_weeks" || this.state.range_of_growth === "grow_less_than_4_months"){ 
+          result = "plant_has_short_growth_rate"; 
       }
       return result;
     }
@@ -255,6 +265,25 @@ export class ExpertForm extends Component {
       } 
       return result;
     } 
+
+
+    _rules_9(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Monstera" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
 }
 
 export default ExpertForm
