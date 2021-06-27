@@ -677,13 +677,11 @@ export class ExpertForm extends Component {
     _rules_32(){
       let result = undefined;  
 
-      if(this.state.plants_type === "ornamental_plant"){
-        if(this.state.have_pets_or_kids === "no"){
-          if(this._rules_5()){
-            if(this._rules_2()){
-              if(this._rules_7()){
-                result = "Calathea" 
-              }
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_6()){ 
+              result = "Pumpkin" 
             }
 
           }
@@ -692,6 +690,133 @@ export class ExpertForm extends Component {
       return result;
     }
 
+    _rules_33(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_7()){ 
+              result = "Eggplant" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_34(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_6()){ 
+              result = "Potatoes" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_35(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_7()){ 
+              result = "Sweet Potato" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_36(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_6()){ 
+              result = "Water Spinach" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_37(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_7()){ 
+              result = "Yam" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_37(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_6()){ 
+              result = "Pandan" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_39(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_7()){ 
+              result = "Scallions" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_40(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_7()){ 
+              result = "Corn" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
 
 }
 
