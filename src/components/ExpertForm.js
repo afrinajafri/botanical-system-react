@@ -502,6 +502,185 @@ export class ExpertForm extends Component {
       return result;
     }
 
+    _rules_22(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_23(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_24(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "Cactus" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_25(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Bougainvillea" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_26(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "Money Plant" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_27(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Hibiscus" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_28(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Fiddle Fig" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_29(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Monstera" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_30(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    rules_31(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Calathea" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
 
 
 }
