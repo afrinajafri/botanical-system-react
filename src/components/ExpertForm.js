@@ -125,13 +125,14 @@ export class ExpertForm extends Component {
         <Modal show={this.state.show} onHide={()=>{this.handleShow()}}>
 
               <Modal.Header>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>The perfect plant for you!</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
                 {/* Woohoo, you're reading this text in a modal!  */}
               {this._rules_8()}
               {this._rules_9()}
+              {this._rules_10()}
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
@@ -284,6 +285,225 @@ export class ExpertForm extends Component {
       } 
       return result;
     }
+
+    _rules_10(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_11(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Calathea" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_12(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Succulent" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_13(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Bougainvillea" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_14(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Money Plant" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_15(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_5()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Garden Balsam" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_16(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Peace Lily" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_17(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "African Violet" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_18(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_2()){
+              if(this._rules_7()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_19(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_3()){
+            if(this._rules_2()){
+              if(this._rules_6()){
+                result = "Epipremnum" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_20(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_1()){
+              if(this._rules_7()){
+                result = "Peace Lily" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_21(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_3()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "African Violet" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+
+
 }
 
 export default ExpertForm
