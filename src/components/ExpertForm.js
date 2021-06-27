@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom' 
+import {useHistory } from 'react-router-dom'
 import { Button, Card, Form, Modal } from 'react-bootstrap';
 import gif from "../images/giphy.gif"
-import gif2 from "../images/giphy2.gif"
-
-
+import gif2 from "../images/giphy2.gif"  
+ 
 export class ExpertForm extends Component {
     constructor(props) {
-        super(props)
+        super(props) 
+
+        let is_seen = undefined;  
+
+        if (localStorage.getItem('is_seen')){ 
+          is_seen = localStorage.getItem('is_seen');
+        }   
     
         this.state = {
             plants_type: undefined,
@@ -20,6 +25,7 @@ export class ExpertForm extends Component {
             showIntro: true,
             showResult: false,
             secondPage: false,
+            is_seen: is_seen,
         }
     }
 
@@ -30,8 +36,10 @@ export class ExpertForm extends Component {
             Botanist Expert System
             <Button style={{float: 'right', marginTop:5}} variant="primary" type="button" onClick={()=>{}}>
               View Previous Result
-            </Button>  
-          
+            </Button>   
+          {localStorage.setItem("is_seen", this.state.is_seen)}
+
+          {console.log('curent', this.state.is_seen)}
           </Card.Header>
           <Card.Body> 
           {this.introModal()}
@@ -164,7 +172,7 @@ export class ExpertForm extends Component {
           </Card.Body>
           </Card> 
         )
-    } 
+    }  
 
     resultModal(){
       return(
@@ -227,6 +235,8 @@ export class ExpertForm extends Component {
     }
 
     introModal(){
+
+      if(this.state.is_seen === false){
       return(
         <React.Fragment>
           <Modal show={this.state.showIntro} onHide={()=>{this.handleShowIntro()}}>
@@ -262,21 +272,25 @@ export class ExpertForm extends Component {
               <Modal.Footer>
                 {
                   this.state.secondPage === false  && 
-                  <Button variant="secondary" onClick={()=>{this.setState({secondPage:true})}}>
+                  <Button variant="secondary" onClick={()=>{ 
+                    this.setState({
+                      secondPage:true, 
+                     })}}> 
                     Next
                   </Button>  
                 } 
                 
                 <Button variant="secondary" onClick={()=>{this.handleShowIntro()}}>
                   Let's Go!
-                </Button> 
+                </Button>  
               </Modal.Footer>
             </Modal> 
             
       </React.Fragment>
-      ) 
+      )
+      }
     }
-
+    // localStorage.setItem('is_seen', this.state.is_seen)
     handleClose(){
       this.setState({showResult:true})
     }
@@ -286,7 +300,7 @@ export class ExpertForm extends Component {
     } 
 
     handleShowIntro(){
-      this.setState({showIntro:false})
+      this.setState({showIntro:false, is_seen: true}) 
     }
 
     _rules_1(){
