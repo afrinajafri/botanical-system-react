@@ -15,15 +15,17 @@ export class ExpertForm extends Component {
             range_of_growth: undefined,
             drought_tolerant: undefined,
             season: undefined,
-            show: false
+            showIntro: true,
+            showResult: false,
         }
     }
 
     render() {
-        return ( 
+        return (  
           <Card className="" style={{marginLeft:250, marginRight:250}}> 
           <Card.Header as="h1">Botanist Expert System</Card.Header>
           <Card.Body> 
+          {this.introModal()}
             <Card.Text>
           <Form className="pt-2" onSubmit={(event)=>{
                 // alert(`${this.state.username}`)
@@ -52,7 +54,7 @@ export class ExpertForm extends Component {
             </select>
             </div> 
 
-            { this.state.plants_type === "botanical_plant" &&
+            { this.state.plants_type === "botanical_plant" ?
               <div className="mt-4"> 
               <Form.Label >Seasons</Form.Label>
                 <select 
@@ -65,53 +67,73 @@ export class ExpertForm extends Component {
                   <option value="wet_season">Wet Season</option>
               </select>
               </div> 
-            }
-            
-            
-          <div className="mt-4"> 
-          <Form.Label >Light Exposure</Form.Label>
-            <select 
-            className="form-select"  
-            value={this.state.light_exposure}
-            onChange={(e)=>{this.setState({light_exposure: e.target.value})}}
-            >
-              <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
-              <option value="moderate_to_bright_light"  >Moderate to Bright</option>
-              <option value="moderate_to_dim_light" >Moderate to Dim</option>
-          </select>
-          </div> 
+              :
+              <React.Fragment>
+                <div className="mt-4"> 
+              <Form.Label >Light Exposure</Form.Label>
+                <select 
+                className="form-select"  
+                value={this.state.light_exposure}
+                onChange={(e)=>{this.setState({light_exposure: e.target.value})}}
+                >
+                  <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+                  <option value="moderate_to_bright_light"  >Moderate to Bright</option>
+                  <option value="moderate_to_dim_light" >Moderate to Dim</option>
+              </select>
+              </div> 
 
-          <div className="mt-4"> 
-          <Form.Label>Watering Schedule</Form.Label>
-            <select 
-            className="form-select"  
-            value={this.state.watering_schedule}
-            onChange={(e)=>{this.setState({watering_schedule: e.target.value})}}
-            >
-            <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
-            <option value="water_one_to_two_times_a_week" >1-2 times a week</option>
-            <option value="water_when_remember">Water when remember (Very less attention)</option> 
-          </select>
-          </div>
+              <div className="mt-4">  
+              <Form.Label>Watering Schedule</Form.Label>
+                <select 
+                className="form-select"  
+                value={this.state.watering_schedule}
+                onChange={(e)=>{this.setState({watering_schedule: e.target.value})}}
+                >
+                <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+                <option value="water_one_to_two_times_a_week" >1-2 times a week</option>
+                <option value="water_when_remember">Water when remember (Very less attention)</option> 
+              </select>
+            </div>
+              </React.Fragment>
+              
+
+            } 
+            
 
           <Form.Group className="mt-4">
               <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
               <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
               <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
           </Form.Group>
-          
-          <div className="mt-4"> 
-          <Form.Label>Range of Growth</Form.Label>
-            <select 
-            className="form-select"  
-            value={this.state.range_of_growth}
-            onChange={(e)=>{this.setState({range_of_growth: e.target.value})}}
-            >
-            <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
-            <option value="grow_more_than_2_weeks" >More than 2 weeks</option>
-            <option value="grow_less_than_2_weeks">Less than 2 weeks</option> 
-          </select>
-          </div>
+
+          { this.state.plants_type === "botanical_plant" ?
+            <div className="mt-4"> 
+            <Form.Label>Range of Growth</Form.Label>
+              <select 
+              className="form-select"  
+              value={this.state.range_of_growth}
+              onChange={(e)=>{this.setState({range_of_growth: e.target.value})}}
+              >
+              <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option> 
+              <option value="grow_more_than_4_months" >More than 4 months</option>
+              <option value="grow_less_than_4_months">Less than 4 months</option> 
+            </select>
+            </div>
+              :
+            <div className="mt-4"> 
+            <Form.Label>Range of Growth</Form.Label>
+              <select 
+              className="form-select"  
+              value={this.state.range_of_growth}
+              onChange={(e)=>{this.setState({range_of_growth: e.target.value})}}
+              >
+              <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+              <option value="grow_more_than_2_weeks" >More than 2 weeks</option>
+              <option value="grow_less_than_2_weeks">Less than 2 weeks</option>  
+            </select>
+            </div>
+
+          } 
 
            
            <div className="mt-4">
@@ -138,7 +160,7 @@ export class ExpertForm extends Component {
     resultModal(){
       return(
       <React.Fragment>
-        <Modal show={this.state.show} onHide={()=>{this.handleShow()}}>
+        <Modal show={this.state.showResult} onHide={()=>{this.handleShow()}}>
 
               <Modal.Header>
                 <Modal.Title>The perfect plant for you!</Modal.Title>
@@ -170,6 +192,19 @@ export class ExpertForm extends Component {
               {this._rules_29()} 
               {this._rules_30()}
               {this._rules_31()}
+              {this._rules_32()}
+              {this._rules_33()} 
+              {this._rules_34()}
+              {this._rules_35()}
+              {this._rules_36()} 
+              {this._rules_37()}
+              {this._rules_38()}
+              {this._rules_39()} 
+              {this._rules_40()}
+              {this._rules_41()} 
+              {this._rules_42()}
+              {this._rules_43()}
+              
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
@@ -182,12 +217,34 @@ export class ExpertForm extends Component {
       )
     }
 
+    introModal(){
+      return(
+        <React.Fragment>
+          <Modal show={this.state.showIntro} onHide={()=>{this.handleShow()}}>
+  
+                <Modal.Header>
+                  <Modal.Title>Welcome to Botanist Expert System!</Modal.Title>
+                </Modal.Header>
+  
+                <Modal.Body>
+                </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={()=>{this.handleShow()}}>
+                  Let's Go!
+                </Button> 
+              </Modal.Footer>
+            </Modal> 
+            
+      </React.Fragment>
+      ) 
+    }
+
     handleClose(){
-      this.setState({show:true})
+      this.setState({showResult:true, showIntro: true})
     }
 
     handleShow(){
-      this.setState({show:false})
+      this.setState({showResult:false, showIntro: false})
     } 
 
     _rules_1(){
@@ -786,7 +843,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    _rules_37(){
+    _rules_38(){
       let result = undefined;  
 
       if(this.state.plants_type === "botanical_plant"){
