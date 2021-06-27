@@ -51,6 +51,22 @@ export class ExpertForm extends Component {
                 <option value="botanical_plant" >Botanical Plants</option>
             </select>
             </div> 
+
+            { this.state.plants_type === "botanical_plant" &&
+              <div className="mt-4"> 
+              <Form.Label >Seasons</Form.Label>
+                <select 
+                className="form-select"  
+                value={this.state.season}
+                onChange={(e)=>{this.setState({season: e.target.value})}}
+                >
+                  <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+                  <option value="summer_season">Summer</option>
+                  <option value="wet_season">Wet Season</option>
+              </select>
+              </div> 
+            }
+            
             
           <div className="mt-4"> 
           <Form.Label >Light Exposure</Form.Label>
