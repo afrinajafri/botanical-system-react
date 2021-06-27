@@ -100,7 +100,7 @@ export class ExpertForm extends Component {
            
            <div className="mt-4">
              <center>
-             <Button variant="primary" type="reset" style={{marginRight:5}}>
+             <Button variant="primary" type="reset" style={{marginRight:5}} onClick={()=>{window.location.reload()}}>
               Reset
             </Button> 
 
