@@ -43,8 +43,8 @@ export class ExpertForm extends Component {
             value={this.state.light_exposure}
             onChange={(e)=>{this.setState({light_exposure: e.target.value})}}
             >
-              <option value="moderate_to_bright_light" selected >Moderate to Bright</option>
-  
+              <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+              <option value="moderate_to_bright_light"  >Moderate to Bright</option>
               <option value="moderate_to_dim_light" >Moderate to Dim</option>
           </select>
           </div> 
@@ -56,7 +56,8 @@ export class ExpertForm extends Component {
             value={this.state.watering_schedule}
             onChange={(e)=>{this.setState({watering_schedule: e.target.value})}}
             >
-            <option value="water_one_to_two_times_a_week" selected>1-2 times a week</option>
+            <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+            <option value="water_one_to_two_times_a_week" >1-2 times a week</option>
             <option value="water_when_remember">Water when remember (Very less attention)</option> 
           </select>
           </div>
@@ -74,7 +75,8 @@ export class ExpertForm extends Component {
             value={this.state.range_of_growth}
             onChange={(e)=>{this.setState({range_of_growth: e.target.value})}}
             >
-            <option value="grow_more_than_2_weeks" selected>More than 2 weeks</option>
+            <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+            <option value="grow_more_than_2_weeks" >More than 2 weeks</option>
             <option value="grow_less_than_2_weeks">Less than 2 weeks</option> 
           </select>
           </div>
@@ -90,7 +92,7 @@ export class ExpertForm extends Component {
               Submit
             </Button>  
 
-            {this.resultModal()}
+            {this.resultModal()} 
            </center> 
            </div>
            
@@ -110,7 +112,10 @@ export class ExpertForm extends Component {
                 <Modal.Title>Modal heading</Modal.Title>
               </Modal.Header>
 
-              <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+              <Modal.Body>
+                {/* Woohoo, you're reading this text in a modal!  */}
+              {this._rules()}
+              </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
                   Close
@@ -132,14 +137,27 @@ export class ExpertForm extends Component {
 
     _rules(){
 
-      let light_exposure = this.state.light_exposure
-      let have_pets_or_kids = this.state.have_pets_or_kids
-      let watering_schedule = this.state.watering_schedule
-      let range_of_growth = this.state.range_of_growth
-      let drought_tolerant = this.state.drought_tolerant
+      let light_exposure = this.state.light_exposure;
+      let have_pets_or_kids = this.state.have_pets_or_kids;
+      let watering_schedule = this.state.watering_schedule;
+      let range_of_growth = this.state.range_of_growth;
+      let drought_tolerant = this.state.drought_tolerant;
+      let result = undefined;
 
+      console.log('result', have_pets_or_kids,light_exposure, watering_schedule, drought_tolerant, range_of_growth)
       
-
+      if(have_pets_or_kids === "yes"){
+        if(light_exposure === "moderate_to_bright_light"){
+          if(watering_schedule === "water_one_to_two_times_a_week"){
+            if(drought_tolerant === "yes"){
+              if(range_of_growth === "grow_more_than_2_weeks"){
+                result = "Fiddle Fig" 
+              }
+            }
+          }
+        }
+      } 
+      return result;
     
     }
       
