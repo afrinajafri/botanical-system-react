@@ -133,6 +133,27 @@ export class ExpertForm extends Component {
               {this._rules_8()}
               {this._rules_9()}
               {this._rules_10()}
+              {this._rules_11()}
+              {this._rules_12()}
+              {this._rules_13()} 
+              {this._rules_14()}
+              {this._rules_15()}
+              {this._rules_16()} 
+              {this._rules_17()}
+              {this._rules_18()}
+              {this._rules_19()} 
+              {this._rules_20()} 
+              {this._rules_21()}
+              {this._rules_22()}
+              {this._rules_23()} 
+              {this._rules_24()}
+              {this._rules_25()}
+              {this._rules_26()} 
+              {this._rules_27()}
+              {this._rules_28()}
+              {this._rules_29()} 
+              {this._rules_30()}
+              {this._rules_31()}
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
@@ -153,32 +174,32 @@ export class ExpertForm extends Component {
       this.setState({show:false})
     }
 
-    _rules(){
+     finalResultFromRules(){ 
 
-      let light_exposure = this.state.light_exposure;
-      let have_pets_or_kids = this.state.have_pets_or_kids;
-      let watering_schedule = this.state.watering_schedule;
-      let range_of_growth = this.state.range_of_growth;
-      let drought_tolerant = this.state.drought_tolerant;
-      let result = undefined;
-
-      console.log('result', have_pets_or_kids,light_exposure, watering_schedule, drought_tolerant, range_of_growth) 
-
-      if(have_pets_or_kids === "yes"){
-        if(light_exposure === "moderate_to_bright_light"){
-          if(watering_schedule === "water_one_to_two_times_a_week"){
-            if(drought_tolerant === "yes"){
-              if(range_of_growth === "grow_more_than_2_weeks"){
-                result = "Fiddle Fig" 
-              }
-              else{
-                result = "Monstera" 
-              }
-            }
-          }
-        }
-      } 
-      return result;
+      {this._rules_8()}
+      {this._rules_9()}
+      {this._rules_10()}
+      {this._rules_11()}
+      {this._rules_12()}
+      {this._rules_13()} 
+      {this._rules_14()}
+      {this._rules_15()}
+      {this._rules_16()} 
+      {this._rules_17()}
+      {this._rules_18()}
+      {this._rules_19()} 
+      {this._rules_20()} 
+      {this._rules_21()}
+      {this._rules_22()}
+      {this._rules_23()} 
+      {this._rules_24()}
+      {this._rules_25()}
+      {this._rules_26()} 
+      {this._rules_27()}
+      {this._rules_28()}
+      {this._rules_29()} 
+      {this._rules_30()}
+      {this._rules_31()}
     
     }
 
@@ -520,7 +541,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_23(){
+    _rules_23(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -538,13 +559,13 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_24(){
+    _rules_24(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
         if(this.state.have_pets_or_kids === "no"){
           if(this._rules_4()){
-            if(this._rules_1()){
+            if(this._rules_2()){
               if(this._rules_6()){
                 result = "Cactus" 
               }
@@ -556,7 +577,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_25(){
+    _rules_25(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -574,7 +595,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_26(){
+    _rules_26(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -592,7 +613,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_27(){
+    _rules_27(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -610,13 +631,13 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_28(){
+    _rules_28(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
         if(this.state.have_pets_or_kids === "no"){
           if(this._rules_4()){
-            if(this._rules_2()){
+            if(this._rules_1()){
               if(this._rules_6()){
                 result = "Fiddle Fig" 
               }
@@ -628,7 +649,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_29(){
+    _rules_29(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -646,7 +667,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_30(){
+    _rules_30(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
@@ -664,7 +685,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    rules_31(){
+    _rules_31(){
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
