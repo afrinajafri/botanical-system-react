@@ -8,11 +8,13 @@ export class ExpertForm extends Component {
         super(props)
     
         this.state = {
+            plants_type: undefined,
             light_exposure: undefined,
             have_pets_or_kids: undefined,
             watering_schedule: undefined,
             range_of_growth: undefined,
             drought_tolerant: undefined,
+            season: undefined,
             show: false
         }
     }
@@ -35,6 +37,20 @@ export class ExpertForm extends Component {
               <Form.Check  type={"radio"} name="have_pets_or_kids" label="Yes" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'yes'})}}/> 
               <Form.Check  type={"radio"} name="have_pets_or_kids" label="No" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'no'})}}/> 
             </Form.Group> 
+
+
+            <div className="mt-4"> 
+            <Form.Label >Type of Plants</Form.Label>
+              <select 
+              className="form-select"  
+              value={this.state.plants_type}
+              onChange={(e)=>{this.setState({plants_type: e.target.value})}}
+              >
+                <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+                <option value="ornamental_plant"  >Ornamental Plants</option>
+                <option value="botanical_plant" >Botanical Plants</option>
+            </select>
+            </div> 
             
           <div className="mt-4"> 
           <Form.Label >Light Exposure</Form.Label>
@@ -114,7 +130,7 @@ export class ExpertForm extends Component {
 
               <Modal.Body>
                 {/* Woohoo, you're reading this text in a modal!  */}
-              {this._rules()}
+              {this._rules_8()}
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
@@ -144,14 +160,17 @@ export class ExpertForm extends Component {
       let drought_tolerant = this.state.drought_tolerant;
       let result = undefined;
 
-      console.log('result', have_pets_or_kids,light_exposure, watering_schedule, drought_tolerant, range_of_growth)
-      
+      console.log('result', have_pets_or_kids,light_exposure, watering_schedule, drought_tolerant, range_of_growth) 
+
       if(have_pets_or_kids === "yes"){
         if(light_exposure === "moderate_to_bright_light"){
           if(watering_schedule === "water_one_to_two_times_a_week"){
             if(drought_tolerant === "yes"){
               if(range_of_growth === "grow_more_than_2_weeks"){
                 result = "Fiddle Fig" 
+              }
+              else{
+                result = "Monstera" 
               }
             }
           }
@@ -160,7 +179,82 @@ export class ExpertForm extends Component {
       return result;
     
     }
-      
+
+    _rules_1(){
+      let result = undefined;
+
+      if(this.state.watering_schedule === "water_one_to_two_times_a_week"){
+        result = "plant_need_mid_attention";
+      }
+      return result;
+    }
+
+    _rules_2(){
+      let result = undefined;
+
+      if(this.state.watering_schedule === "water_when_remember"){
+        result = "plant_need_less_attention";
+      }
+      return result;
+    }
+
+    _rules_3(){
+      let result = undefined;
+
+      if(this.state.light_exposure === "moderate_to_dim_light" || this.state.season === "wet_season"){
+        result = "plant_resilience_toward_humid_and_hot_weather";
+      } 
+      return result;
+    }
+
+    _rules_4(){ 
+      let result = undefined; 
+
+      if(this.state.light_exposure === "moderate_to_bright_light" || this.state.season === "summer_season"){
+        if(this.state.drought_tolerant === "yes"){
+          result = "plant_has_strong_resistant_toward_dry_weather";
+        }
+      }
+      return result;
+    }
+
+    _rules_5(){ 
+      let result = undefined; 
+
+      if(this.state.light_exposure === "moderate_to_bright_light" || this.state.season === "summer_season"){
+        if(this.state.drought_tolerant === "no"){
+          result = "plant_has_low_resistant_toward_dry_weather";
+        }
+      }
+      return result;
+    }
+
+    _rules_6(){ 
+      let result = undefined; 
+
+      if(this.state.range_of_growth === "grow_more_than_2_weeks"){ 
+          result = "plant_has_long_growth_rate"; 
+      }
+      return result;
+    }
+
+    _rules_8(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "ornamental_plant"){
+        if(this.state.have_pets_or_kids === "yes"){
+          if(this._rules_4()){
+            if(this._rules_1()){
+              if(this._rules_6()){
+                result = "Fiddle Fig" 
+              }
+            }
+
+          }
+        }
+      } 
+      return result;
+    } 
 }
 
 export default ExpertForm
