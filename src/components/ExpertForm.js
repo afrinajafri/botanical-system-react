@@ -818,6 +818,55 @@ export class ExpertForm extends Component {
       return result;
     }
 
+    _rules_41(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_5()){
+            if(this._rules_6()){ 
+              result = "Sugar Cane" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_42(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_6()){ 
+              result = "Durian" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
+    _rules_43(){
+      let result = undefined;  
+
+      if(this.state.plants_type === "botanical_plant"){
+        if(this.state.have_pets_or_kids === "no"){
+          if(this._rules_4()){
+            if(this._rules_7()){ 
+              result = "Tomatoes" 
+            }
+
+          }
+        }
+      } 
+      return result;
+    }
+
 }
+
 
 export default ExpertForm
