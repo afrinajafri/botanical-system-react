@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom' 
 import { Button, Card, Form, Modal } from 'react-bootstrap';
+import gif from "../images/giphy.gif"
+import gif2 from "../images/giphy2.gif"
 
 
 export class ExpertForm extends Component {
@@ -17,13 +19,20 @@ export class ExpertForm extends Component {
             season: undefined,
             showIntro: true,
             showResult: false,
+            secondPage: false,
         }
     }
 
     render() {
         return (  
           <Card className="" style={{marginLeft:250, marginRight:250}}> 
-          <Card.Header as="h1">Botanist Expert System</Card.Header>
+          <Card.Header as="h1">
+            Botanist Expert System
+            <Button style={{float: 'right', marginTop:5}} variant="primary" type="button" onClick={()=>{}}>
+              View Previous Result
+            </Button>  
+          
+          </Card.Header>
           <Card.Body> 
           {this.introModal()}
             <Card.Text>
@@ -220,16 +229,45 @@ export class ExpertForm extends Component {
     introModal(){
       return(
         <React.Fragment>
-          <Modal show={this.state.showIntro} onHide={()=>{this.handleShow()}}>
+          <Modal show={this.state.showIntro} onHide={()=>{this.handleShowIntro()}}>
   
                 <Modal.Header>
                   <Modal.Title>Welcome to Botanist Expert System!</Modal.Title>
                 </Modal.Header>
   
                 <Modal.Body>
+                  {
+                   this.state.secondPage === false ?
+                   <React.Fragment>
+                     <img src={gif}></img>
+
+                    <p>
+                      Hello! Welcome to Botanical Expert System :D <br></br>
+                      My name is Bot.Ex! <br></br>
+                      I will be your 24/7 BEST botanical expert! 
+                    </p>
+                   </React.Fragment>
+                  
+                  :
+                    <div>
+                      <img className= "img-responsive" style={{maxHeight: "350px" }}src={gif2}></img>
+                      <b>How does this system work?</b>
+                      <p>Good question! I am here to give you some recommendation based on your preference to get the perfect plants just for you! 
+                        <br></br><br></br>
+                        Choose the right questions and there, you can start planting. Have fun!
+                      </p>
+                    </div>
+                  }
                 </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={()=>{this.handleShow()}}>
+                {
+                  this.state.secondPage === false  && 
+                  <Button variant="secondary" onClick={()=>{this.setState({secondPage:true})}}>
+                    Next
+                  </Button>  
+                } 
+                
+                <Button variant="secondary" onClick={()=>{this.handleShowIntro()}}>
                   Let's Go!
                 </Button> 
               </Modal.Footer>
@@ -240,12 +278,16 @@ export class ExpertForm extends Component {
     }
 
     handleClose(){
-      this.setState({showResult:true, showIntro: true})
+      this.setState({showResult:true})
     }
 
     handleShow(){
-      this.setState({showResult:false, showIntro: false})
+      this.setState({showResult:false})
     } 
+
+    handleShowIntro(){
+      this.setState({showIntro:false})
+    }
 
     _rules_1(){
       let result = undefined;
