@@ -3,6 +3,7 @@ import {useHistory } from 'react-router-dom'
 import { Button, Card, Form, Modal } from 'react-bootstrap';
 import gif from "../images/giphy.gif"
 import gif2 from "../images/giphy2.gif"  
+import ornamental_list from "./json/ornamental.json"
  
 export class ExpertForm extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ export class ExpertForm extends Component {
             showResult: false,
             secondPage: false,
             is_seen: false,
+            carePage: false,
         }
     }
 
@@ -50,7 +52,7 @@ export class ExpertForm extends Component {
                 event.preventDefault()
             }}> 
 
-            
+
             <Form.Label >Type of Plants</Form.Label>
               <select 
               className="form-select"  
@@ -173,55 +175,31 @@ export class ExpertForm extends Component {
     }  
 
     resultModal(){
+      
       return(
       <React.Fragment>
-        <Modal show={this.state.showResult} onHide={()=>{this.handleShow()}}>
-
-              <Modal.Header>
-                <Modal.Title>The perfect plant for you!</Modal.Title>
-              </Modal.Header>
+        <Modal size= "lg" show={this.state.showResult} onHide={()=>{this.handleShow()}}>
+              {this.state.carePage === false && 
+              <Modal.Header> 
+               <Modal.Title>The perfect plant for you!</Modal.Title>
+              </Modal.Header>}
 
               <Modal.Body>
-                {/* Woohoo, you're reading this text in a modal!  */}
-              {this._rules_8()}
-              {this._rules_9()}
-              {this._rules_10()}
-              {this._rules_11()}
-              {this._rules_12()}
-              {this._rules_13()} 
-              {this._rules_14()}
-              {this._rules_15()}
-              {this._rules_16()} 
-              {this._rules_17()}
-              {this._rules_18()}
-              {this._rules_19()} 
-              {this._rules_20()} 
-              {this._rules_21()}
-              {this._rules_22()}
-              {this._rules_23()} 
-              {this._rules_24()}
-              {this._rules_25()}
-              {this._rules_26()} 
-              {this._rules_27()}
-              {this._rules_28()}
-              {this._rules_29()} 
-              {this._rules_30()}
-              {this._rules_31()}
-              {this._rules_32()}
-              {this._rules_33()} 
-              {this._rules_34()}
-              {this._rules_35()}
-              {this._rules_36()} 
-              {this._rules_37()}
-              {this._rules_38()}
-              {this._rules_39()} 
-              {this._rules_40()}
-              {this._rules_41()} 
-              {this._rules_42()}
-              {this._rules_43()}
+                {/* Woohoo, you're reading this text in a modal!  */} 
+              {this.showResult()} 
               
               </Modal.Body>
               <Modal.Footer>
+              {
+                  this.state.carePage === false  && 
+                  <Button variant="secondary" onClick={()=>{ 
+                    this.setState({
+                      carePage:true, 
+                     })}}> 
+                    How to take care?
+                  </Button>  
+                } 
+                
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
                   Close
                 </Button> 
@@ -230,6 +208,63 @@ export class ExpertForm extends Component {
             
       </React.Fragment>
       )
+    }
+
+    showResult(){ 
+
+      if(this._rules_8()){
+        return(
+          <React.Fragment>
+            {ornamental_list.map((item,idx)=>{
+              if(item.name === "Fiddle Fig"){
+                if(this.state.carePage === false){
+                  return(
+                  <div> 
+                    <div style={{paddingLeft:"130px"}}>
+                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px" }}></img>
+                    </div>
+                    <br></br>
+                    <center><h2>{item.name}</h2></center>
+                    <br></br> 
+                    <center></center>
+                    <br></br>
+                    <center><b>Plant Description:</b><p>{item.description}</p></center>
+                  </div>
+                )
+                }
+                else{
+                  return(
+                    <div>
+                      {item.name} Care
+                    </div>
+                  )
+                }
+                
+              }
+              
+            })}
+          </React.Fragment>
+        )
+      }
+
+      if(this._rules_9()){
+        return(
+          <React.Fragment>
+
+
+            
+            {ornamental_list.map((item,idx)=>{
+              if(item.name === "Monstera")
+              return(
+                <div>
+                  {item.name}<br></br>
+                  {item.description}
+                </div>
+              )
+            })}
+          </React.Fragment>
+        )
+      }
     }
 
     introModal(){
