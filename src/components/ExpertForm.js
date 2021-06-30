@@ -191,16 +191,7 @@ export class ExpertForm extends Component {
               
               </Modal.Body>
               <Modal.Footer>
-              {
-                  this.state.carePage === false  && 
-                  <Button variant="success" onClick={()=>{ 
-                    this.setState({
-                      carePage:true, 
-                      previousPage: true,
-                     })}}> 
-                    How to take care?
-                  </Button>  
-              }  
+                
 
               {
                   this.state.previousPage === true  && 
@@ -212,10 +203,21 @@ export class ExpertForm extends Component {
                      Back 
                   </Button>  
               }
+
+              {
+                  this.state.carePage === false  && 
+                  <Button variant="success" onClick={()=>{ 
+                    this.setState({
+                      carePage:true, 
+                      previousPage: true,
+                     })}}> 
+                    How to take care?
+                  </Button>  
+              } 
                 
                 <Button variant="secondary" onClick={()=>{
 
-                  // alert ("Thank you for using this expert system! Happy planting!")
+                  alert ("Thank you for using this expert system! Happy planting!")
                   this.handleShow()}}>
                   Close
                 </Button> 
