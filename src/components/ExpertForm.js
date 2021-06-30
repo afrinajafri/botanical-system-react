@@ -25,7 +25,7 @@ export class ExpertForm extends Component {
             showIntro: true,
             showResult: false,
             secondPage: false,
-            is_seen: is_seen,
+            is_seen: false,
         }
     }
 
@@ -34,7 +34,7 @@ export class ExpertForm extends Component {
           <Card className="" style={{marginLeft:250, marginRight:250}}> 
           <Card.Header as="h1">
             Botanist Expert System
-            <Button style={{float: 'right', marginTop:5}} variant="primary" type="button" onClick={()=>{}}>
+            <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{}}>
               View Previous Result
             </Button>   
           {localStorage.setItem("is_seen", this.state.is_seen)}
@@ -155,11 +155,11 @@ export class ExpertForm extends Component {
            
            <div className="mt-4">
              <center>
-             <Button variant="primary" type="reset" style={{marginRight:5}} onClick={()=>{window.location.reload()}}>
+             <Button variant="secondary" type="reset" style={{marginRight:5}} onClick={()=>{window.location.reload()}}>
               Reset
             </Button> 
 
-            <Button variant="primary" type="submit" onClick={()=>{this.handleClose()}}>
+            <Button variant="success" type="submit" onClick={()=>{this.handleClose()}}>
               Submit
             </Button>  
 
