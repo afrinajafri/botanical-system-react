@@ -231,13 +231,14 @@ export class ExpertForm extends Component {
       )
     }
 
-    showResult(){ 
+    showResult(){  
 
-      if(this._rules_8()){
+      let result = this._rules_8();
+ 
         return(
-          <React.Fragment>
+          <React.Fragment> 
             {ornamental_list.map((item,idx)=>{
-              if(item.name === "Fiddle Fig"){
+              if(item.name === result){
                 if(this.state.carePage === false){
                   return(
                   <div> 
@@ -287,27 +288,7 @@ export class ExpertForm extends Component {
               
             })}
           </React.Fragment>
-        )
-      }
-
-      if(this._rules_9()){
-        return(
-          <React.Fragment>
-
-
-            
-            {ornamental_list.map((item,idx)=>{
-              if(item.name === "Monstera")
-              return(
-                <div>
-                  {item.name}<br></br>
-                  {item.description}
-                </div>
-              )
-            })}
-          </React.Fragment>
-        )
-      }
+        ) 
     }
 
     introModal(){
