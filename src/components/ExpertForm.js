@@ -198,7 +198,7 @@ export class ExpertForm extends Component {
       //     this.setState({showResult:false})
       //   }
       // else{
-        
+      //     this.setState({showResult:true, currentResult: result})
       // }  
          this.setState({showResult:true, currentResult: result})
     }
@@ -247,7 +247,7 @@ export class ExpertForm extends Component {
                   <Button variant="secondary" onClick={()=>{
 
                   alert ("Thank you for using this expert system! Happy planting!")
-                  this.handleShow()}}>
+                  window.location.reload()}}>
                   Close
                   </Button> 
                   </React.Fragment> 
