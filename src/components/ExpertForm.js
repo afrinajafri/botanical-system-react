@@ -191,18 +191,6 @@ export class ExpertForm extends Component {
               
               </Modal.Body>
               <Modal.Footer>
-                
-
-              {
-                  this.state.previousPage === true  && 
-                  <Button variant="secondary" onClick={()=>{ 
-                    this.setState({
-                      carePage:false,  
-                      previousPage: false,
-                     })}}> 
-                     Back 
-                  </Button>  
-              }
 
               {
                   this.state.carePage === false  && 
@@ -215,12 +203,26 @@ export class ExpertForm extends Component {
                   </Button>  
               } 
                 
-                <Button variant="secondary" onClick={()=>{
+
+              {
+                  this.state.previousPage === true  && 
+                  <React.Fragment>
+                    <Button variant="secondary" onClick={()=>{ 
+                    this.setState({
+                      carePage:false,  
+                      previousPage: false,
+                     })}}> 
+                     Back 
+                  </Button>
+                  <Button variant="secondary" onClick={()=>{
 
                   alert ("Thank you for using this expert system! Happy planting!")
                   this.handleShow()}}>
                   Close
-                </Button> 
+                  </Button> 
+                  </React.Fragment> 
+                   
+              } 
                 
               </Modal.Footer>
             </Modal> 
