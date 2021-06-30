@@ -200,16 +200,23 @@ export class ExpertForm extends Component {
                      })}}> 
                     How to take care?
                   </Button>  
-              } 
+              }  
 
-              {/* {
-                this.state.previousPage === "true" && 
-                <Button variant="secondary" onClick={()=>{this.showResult()} >
-                Close
-                </Button>
-              }  */}
+              {
+                  this.state.previousPage === true  && 
+                  <Button variant="secondary" onClick={()=>{ 
+                    this.setState({
+                      carePage:false,  
+                      previousPage: false,
+                     })}}> 
+                     Back 
+                  </Button>  
+              }
                 
-                <Button variant="secondary" onClick={()=>{this.handleShow()}}>
+                <Button variant="secondary" onClick={()=>{
+
+                  // alert ("Thank you for using this expert system! Happy planting!")
+                  this.handleShow()}}>
                   Close
                 </Button> 
                 
@@ -358,11 +365,8 @@ export class ExpertForm extends Component {
       }
     }
     // localStorage.setItem('is_seen', this.state.is_seen)
-    handleClose(){
-      if(this.state.carePage === false){
-        this.setState({showResult:true})
-      }
-      
+    handleClose(){ 
+      this.setState({showResult:true})
     }
 
     handleShow(){
