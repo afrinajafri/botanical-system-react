@@ -48,17 +48,9 @@ export class ExpertForm extends Component {
                 // alert(`${this.state.username}`)
                 // console.log('event',event.target.value)
                 event.preventDefault()
-            }}>
+            }}> 
 
-            <Form.Group >
-              <Form.Label >Do you have pets or kids at home?</Form.Label>
-              
-              <Form.Check  type={"radio"} name="have_pets_or_kids" label="Yes" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'yes'})}}/> 
-              <Form.Check  type={"radio"} name="have_pets_or_kids" label="No" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'no'})}}/> 
-            </Form.Group> 
-
-
-            <div className="mt-4"> 
+            
             <Form.Label >Type of Plants</Form.Label>
               <select 
               className="form-select"  
@@ -68,8 +60,14 @@ export class ExpertForm extends Component {
                 <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
                 <option value="ornamental_plant"  >Ornamental Plants</option>
                 <option value="botanical_plant" >Botanical Plants</option>
-            </select>
-            </div> 
+            </select> 
+
+            <Form.Group className="mt-4">
+              <Form.Label >Do you have pets or kids at home?</Form.Label>
+              
+              <Form.Check  type={"radio"} name="have_pets_or_kids" label="Yes" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'yes'})}}/> 
+              <Form.Check  type={"radio"} name="have_pets_or_kids" label="No" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'no'})}}/> 
+            </Form.Group>  
 
             { this.state.plants_type === "botanical_plant" ?
               <div className="mt-4"> 
