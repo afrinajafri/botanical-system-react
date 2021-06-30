@@ -178,7 +178,7 @@ export class ExpertForm extends Component {
       
       return(
       <React.Fragment>
-        <Modal size= "lg" show={this.state.showResult} onHide={()=>{this.handleShow()}}>
+        <Modal size= "lg" show={this.state.showResult} backdrop="static" keyboard={false}>
               {this.state.carePage === false && 
               <Modal.Header> 
                <Modal.Title>The perfect plant for you!</Modal.Title>
@@ -192,17 +192,18 @@ export class ExpertForm extends Component {
               <Modal.Footer>
               {
                   this.state.carePage === false  && 
-                  <Button variant="secondary" onClick={()=>{ 
+                  <Button variant="success" onClick={()=>{ 
                     this.setState({
                       carePage:true, 
                      })}}> 
                     How to take care?
                   </Button>  
-                } 
+              } 
                 
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
                   Close
                 </Button> 
+                
               </Modal.Footer>
             </Modal> 
             
@@ -221,21 +222,43 @@ export class ExpertForm extends Component {
                   return(
                   <div> 
                     <div style={{paddingLeft:"130px"}}>
-                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px" }}></img>
+                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
                     </div>
-                    <br></br>
-                    <center><h2>{item.name}</h2></center>
-                    <br></br> 
-                    <center></center>
-                    <br></br>
-                    <center><b>Plant Description:</b><p>{item.description}</p></center>
+                    <div>
+                      <center><h2>{item.name}</h2></center>
+                    </div>
+                    
+                    <div className="mt-3">
+                      <center><b>Plant Description:</b><p>{item.description}</p></center>
+                    </div>  
+                    
                   </div>
                 )
                 }
                 else{
                   return(
                     <div>
-                      {item.name} Care
+                      <center><h2>{item.name} Care</h2></center>
+
+                      <br></br>
+                      
+                      <div style={{paddingLeft:"130px"}}>
+                      <img src={item.careImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
+                     </div>
+                     
+
+                     <div className="pt-4">
+                        <b>Light Exposure: </b> {item.light}
+                     </div>
+
+                     <div className="pt-2">
+                       <b>Watering Schedule: </b>{item.watering}
+                     </div>
+
+                     <div className="pt-2">
+                       <b>Soil and Repotting: </b> {item.soil}
+                     </div>
+
                     </div>
                   )
                 }
