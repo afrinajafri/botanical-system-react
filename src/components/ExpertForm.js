@@ -4,6 +4,7 @@ import { Button, Card, Form, Modal } from 'react-bootstrap';
 import gif from "../images/giphy.gif"
 import gif2 from "../images/giphy2.gif"  
 import ornamental_list from "./json/ornamental.json"
+import botanical_list from "./json/botanical.json"
  
 export class ExpertForm extends Component {
     constructor(props) {
@@ -29,12 +30,13 @@ export class ExpertForm extends Component {
             is_seen: false,
             carePage: false,
             previousPage: false,
+            currentResult: undefined,
         }
     }
 
     render() {
         return (  
-          <Card className="" style={{marginLeft:250, marginRight:250}}> 
+          <Card className="" style={{marginLeft:250, marginRight:250}}>  
           <Card.Header as="h1">
             Botanist Expert System
             {/* <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{this.showResult()}}>
@@ -160,7 +162,7 @@ export class ExpertForm extends Component {
               Reset
             </Button> 
 
-            <Button variant="success" type="submit" onClick={()=>{this.handleClose()}}>
+            <Button variant="success" type="submit" onClick={()=>{this.submitButton()}}>
               Submit
             </Button>  
 
@@ -173,7 +175,35 @@ export class ExpertForm extends Component {
           </Card.Body>
           </Card> 
         )
-    }  
+    }
+    
+    submitButton(){ 
+      if (this.state.plants_type === undefined || 
+        this.state.light_exposure === undefined || 
+        this.state.have_pets_or_kids === undefined ||
+        this.state.watering_schedule === undefined ||
+        this.state.range_of_growth === undefined ||
+        this.state.drought_tolerant === undefined  ||
+        this.state.season === undefined ){
+          alert ("Please fill out all of the questions")
+          this.setState({showResult:false})
+        }
+      else{
+        this.setState({showResult:true})
+      }  
+         
+    }
+
+    triggersRules(){
+      let firstName = 'John',
+      lastName = 'Doe';
+      return {
+        firstName,
+        lastName
+      };
+    }
+ 
+    
 
     resultModal(){
       
@@ -229,16 +259,18 @@ export class ExpertForm extends Component {
             
       </React.Fragment>
       )
-    }
+    } 
 
     showResult(){  
 
-      let result = this._rules_8();
+      let result = this.state.currentResult;
  
+      if(this.state.plants_type === "ornamental_plant")
+      { 
         return(
-          <React.Fragment> 
-            {ornamental_list.map((item,idx)=>{
-              if(item.name === result){
+          <React.Fragment>  
+            {ornamental_list.map((item,idx)=>{ 
+              if(item.name === "Fiddle Fig"){
                 if(this.state.carePage === false){
                   return(
                   <div> 
@@ -289,6 +321,59 @@ export class ExpertForm extends Component {
             })}
           </React.Fragment>
         ) 
+      }
+      else{
+        return(
+          <React.Fragment>  
+            {botanical_list.map((item,idx)=>{ 
+              if(item.name === "Pumpkin"){
+                if(this.state.carePage === false){
+                  return(
+                  <div> 
+                    <div style={{paddingLeft:"130px"}}>
+                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
+                    </div>
+                    <div>
+                      <center><h2>{item.name}</h2></center>
+                    </div>
+                    
+                    <div className="mt-3">
+                      <center><b>Plant Description:</b><p>{item.description}</p></center>
+                    </div>  
+                    
+                  </div>
+                )
+                }
+                else{
+                  return(
+                    <div>
+                      <center><h2>{item.name} Care</h2></center>
+
+                      <br></br>
+                      
+                      <div style={{paddingLeft:"130px"}}>
+                      <img src={item.careImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
+                     </div>
+                     
+
+                     <div className="pt-4">
+                        <b>Planting Location: </b> {item.location}
+                     </div>
+
+                     <div className="pt-2">
+                       <b>Fertilization Schedule: </b>{item.schedule}
+                     </div> 
+
+                    </div>
+                  )
+                }
+                
+              }
+              
+            })}
+          </React.Fragment>
+        ) 
+      }
     }
 
     introModal(){
@@ -351,7 +436,12 @@ export class ExpertForm extends Component {
     }
     // localStorage.setItem('is_seen', this.state.is_seen)
     handleClose(){ 
-      this.setState({showResult:true})
+      let result = "";
+       
+        result = this._rules_8;
+
+      
+      this.setState({showResult:true, currentResult: result})
     }
 
     handleShow(){
@@ -437,7 +527,7 @@ export class ExpertForm extends Component {
           if(this._rules_4()){
             if(this._rules_1()){
               if(this._rules_6()){
-                result = "Fiddle Fig" 
+                result = "Fiddle Fig"
               }
             }
 
