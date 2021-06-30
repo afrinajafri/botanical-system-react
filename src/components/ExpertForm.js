@@ -34,10 +34,11 @@ export class ExpertForm extends Component {
         }
     }
 
-    render() {
+    render() {  
         return (  
           <Card className="" style={{marginLeft:250, marginRight:250}}>  
-          <Card.Header as="h1">
+          <Card.Header as="h1">   
+
             Botanist Expert System
             {/* <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{this.showResult()}}>
               View Previous Result
@@ -178,32 +179,31 @@ export class ExpertForm extends Component {
     }
     
     submitButton(){ 
-      if (this.state.plants_type === undefined || 
-        this.state.light_exposure === undefined || 
-        this.state.have_pets_or_kids === undefined ||
-        this.state.watering_schedule === undefined ||
-        this.state.range_of_growth === undefined ||
-        this.state.drought_tolerant === undefined  ||
-        this.state.season === undefined ){
-          alert ("Please fill out all of the questions")
-          this.setState({showResult:false})
-        }
-      else{
-        this.setState({showResult:true})
-      }  
+
+      let result = this.finalResult(); 
+
+      this.setState({showResult:true, currentResult: result})
+
+      
+      // if(
+      //   this.state.plants_type === undefined || 
+      //   this.state.light_exposure === undefined || 
+      //   this.state.have_pets_or_kids === undefined ||
+      //   this.state.watering_schedule === undefined ||
+      //   this.state.range_of_growth === undefined ||
+      //   this.state.drought_tolerant === undefined 
+      //    )
+      //   {
+      //     alert ("Please fill out all of the questions")
+      //     this.setState({showResult:false})
+      //   }
+      // else{
+      //   this.setState({showResult:true, currentResult: result})
+      // }  
          
     }
 
-    triggersRules(){
-      let firstName = 'John',
-      lastName = 'Doe';
-      return {
-        firstName,
-        lastName
-      };
-    }
- 
-    
+     
 
     resultModal(){
       
@@ -263,14 +263,16 @@ export class ExpertForm extends Component {
 
     showResult(){  
 
-      let result = this.state.currentResult;
+      let result = this.state.currentResult; 
+
+      console.log('result',result)
  
       if(this.state.plants_type === "ornamental_plant")
       { 
         return(
           <React.Fragment>  
             {ornamental_list.map((item,idx)=>{ 
-              if(item.name === "Fiddle Fig"){
+              if(item.name ===  result){
                 if(this.state.carePage === false){
                   return(
                   <div> 
@@ -326,7 +328,7 @@ export class ExpertForm extends Component {
         return(
           <React.Fragment>  
             {botanical_list.map((item,idx)=>{ 
-              if(item.name === "Pumpkin"){
+              if(item.name === result){
                 if(this.state.carePage === false){
                   return(
                   <div> 
@@ -433,16 +435,7 @@ export class ExpertForm extends Component {
       </React.Fragment>
       )
       }
-    }
-    // localStorage.setItem('is_seen', this.state.is_seen)
-    handleClose(){ 
-      let result = "";
-       
-        result = this._rules_8;
-
-      
-      this.setState({showResult:true, currentResult: result})
-    }
+    } 
 
     handleShow(){
       this.setState({showResult:false})
@@ -451,6 +444,29 @@ export class ExpertForm extends Component {
     handleShowIntro(){
       this.setState({showIntro:false, is_seen: true}) 
     }
+
+    triggersRules = () => {
+      return [this._rules_8(), this._rules_9(), this._rules_32()]
+      
+    }
+
+    finalResult(){ 
+      let result = this.triggersRules(); 
+      let finalResult = [];
+      let currentResult = undefined;
+
+      result.forEach((val) => {
+        if(val !== null && typeof val !== "undefined" && (""+val).trim() !== ""){
+          finalResult.push(val);
+        }
+      });
+
+      if(finalResult !== undefined){
+        currentResult = finalResult[0]
+      }
+      
+      return currentResult;
+    } 
 
     _rules_1(){
       let result = undefined;
@@ -519,7 +535,7 @@ export class ExpertForm extends Component {
       return result;
     }
 
-    _rules_8(){
+    _rules_8=()=> {
       let result = undefined;  
 
       if(this.state.plants_type === "ornamental_plant"){
