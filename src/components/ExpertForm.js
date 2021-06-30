@@ -28,6 +28,7 @@ export class ExpertForm extends Component {
             secondPage: false,
             is_seen: false,
             carePage: false,
+            previousPage: false,
         }
     }
 
@@ -36,9 +37,9 @@ export class ExpertForm extends Component {
           <Card className="" style={{marginLeft:250, marginRight:250}}> 
           <Card.Header as="h1">
             Botanist Expert System
-            <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{}}>
+            {/* <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{this.showResult()}}>
               View Previous Result
-            </Button>   
+            </Button>    */}
           {localStorage.setItem("is_seen", this.state.is_seen)}
 
           {console.log('curent', this.state.is_seen)}
@@ -195,10 +196,18 @@ export class ExpertForm extends Component {
                   <Button variant="success" onClick={()=>{ 
                     this.setState({
                       carePage:true, 
+                      previousPage: true,
                      })}}> 
                     How to take care?
                   </Button>  
               } 
+
+              {/* {
+                this.state.previousPage === "true" && 
+                <Button variant="secondary" onClick={()=>{this.showResult()} >
+                Close
+                </Button>
+              }  */}
                 
                 <Button variant="secondary" onClick={()=>{this.handleShow()}}>
                   Close
@@ -326,20 +335,22 @@ export class ExpertForm extends Component {
                   }
                 </Modal.Body>
               <Modal.Footer>
+                  
+                <Button variant="secondary" onClick={()=>{this.handleShowIntro()}}>
+                  Let's Go!
+                </Button>  
+
                 {
                   this.state.secondPage === false  && 
-                  <Button variant="secondary" onClick={()=>{ 
+                  <Button variant="success" onClick={()=>{ 
                     this.setState({
                       secondPage:true, 
                      })}}> 
                     Next
                   </Button>  
                 } 
-                
-                <Button variant="secondary" onClick={()=>{this.handleShowIntro()}}>
-                  Let's Go!
-                </Button>  
               </Modal.Footer>
+ 
             </Modal> 
             
       </React.Fragment>
@@ -348,7 +359,10 @@ export class ExpertForm extends Component {
     }
     // localStorage.setItem('is_seen', this.state.is_seen)
     handleClose(){
-      this.setState({showResult:true})
+      if(this.state.carePage === false){
+        this.setState({showResult:true})
+      }
+      
     }
 
     handleShow(){
