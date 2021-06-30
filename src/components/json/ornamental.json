@@ -4,6 +4,42 @@
     "watering": "Once a week, allowing the top couple inches of soil to dry out before watering again.",
     "soil": "The Fiddle Fig likes its soil to be kept consistently, evenly moist with a brief drying out period between waterings as it comes from an area of the world that gets very dry between rain storms."},
     
-    {"name":"Monstera", "description": "Ficus lyrata, commonly known as the fiddle-leaf fig, is a species of flowering plant in the mulberry and fig family Moraceae. It is native to western Africa, from Cameroon west to Sierra Leone, where it grows in lowland tropical rainforest. It can grow up to 12–15 m tall.", 
-    "care": "Light Exposure : Fiddle Leaf Figs need a lot of natural light and do best when placed directly in front of a window. Watering Schedule:  Once a week, allowing the top couple inches of soil to dry out before watering again.<br></br>Soil Schedule:  The Fiddle Fig likes its soil to be kept consistently, evenly moist with a brief drying out period between waterings as it comes from an area of the world that gets very dry between rain storms. "}
+    {"name":"Monstera", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+    "care": "Light Exposure : lorem ipsum"},
+
+    {"name":"Epipremnum", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+        "care": "Light Exposure : lorem ipsum"},
+
+    {"name":"Calathea", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+        "care": "Light Exposure : lorem ipsum"},
+    
+    {"name":"Succulent", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+        "care": "Light Exposure : lorem ipsum"},
+
+        {"name":"Bougainvillea", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+            "care": "Light Exposure : lorem ipsum"},
+
+            {"name":"Money Plant", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                "care": "Light Exposure : lorem ipsum"},
+
+                {"name":"Garden Balsam", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                    "care": "Light Exposure : lorem ipsum"},
+
+                    {"name":"Peace Lily", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                        "care": "Light Exposure : lorem ipsum"},
+
+
+                        {"name":"African Violet", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                            "care": "Light Exposure : lorem ipsum"},
+
+                            {"name":"Cactus", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                                "care": "Light Exposure : lorem ipsum"},
+
+
+                                {"name":"Hibiscus", "plantImage": "lorem ipsum","careImage": "lorem", "description": "lorem ipsum", 
+                                    "care": "Light Exposure : lorem ipsum"}
+
+
+    
+
 ]

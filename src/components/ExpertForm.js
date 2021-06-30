@@ -198,9 +198,9 @@ export class ExpertForm extends Component {
       //     this.setState({showResult:false})
       //   }
       // else{
-      //   this.setState({showResult:true, currentResult: result})
+        
       // }  
-         
+         this.setState({showResult:true, currentResult: result})
     }
 
      
@@ -443,16 +443,7 @@ export class ExpertForm extends Component {
 
     handleShowIntro(){
       this.setState({showIntro:false, is_seen: true}) 
-    }
-
-    triggersRules = () => {
-      return [this._rules_8(), this._rules_9(), this._rules_10(), this._rules_11(), this._rules_12(),this._rules_13(), this._rules_14(), this._rules_15(), this._rules_16(), this._rules_17(),
-        this._rules_18(), this._rules_19(), this._rules_20(), this._rules_21(), this._rules_22(),this._rules_23(), this._rules_24(), this._rules_25(), this._rules_26(), this._rules_27(),
-        this._rules_28(), this._rules_29(), this._rules_30(), this._rules_33(), this._rules_32(),this._rules_33(), this._rules_34(), this._rules_35(), this._rules_36(), this._rules_37(),
-        this._rules_38(), this._rules_39(), this._rules_40(), this._rules_41(), this._rules_42(),this._rules_43()
-      ]
-      
-    }
+    } 
 
     finalResult(){ 
       let result = this.triggersRules(); 
@@ -471,6 +462,19 @@ export class ExpertForm extends Component {
       
       return currentResult;
     } 
+
+    triggersRules = () => {
+      return [this._rules_8(), this._rules_9(), this._rules_10(), this._rules_11(), 
+        this._rules_12(),this._rules_13(), this._rules_14(), this._rules_15(), this._rules_16(),
+        this._rules_17(),this._rules_18(), this._rules_19(), this._rules_20(), this._rules_21(), 
+        this._rules_22(),this._rules_23(), this._rules_24(), this._rules_25(), this._rules_26(),
+        this._rules_27(),this._rules_28(), this._rules_29(), this._rules_30(), this._rules_33(),
+        this._rules_32(),this._rules_33(), this._rules_34(), this._rules_35(), this._rules_36(), 
+        this._rules_37(),this._rules_38(), this._rules_39(), this._rules_40(), this._rules_41(), 
+        this._rules_42(),this._rules_43()
+      ]
+      
+    }
 
     _rules_1(){
       let result = undefined;
