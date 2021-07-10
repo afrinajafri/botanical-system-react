@@ -9,7 +9,7 @@ function App() {
   return ( 
     <div className="bg-image" style={{paddingTop:30,backgroundImage: `url(${Background})`, backgroundPosition: 'center',
     backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',height: "130vh"}}> 
+    backgroundRepeat: 'no-repeat',height: "110vh"}}> 
       <ExpertForm></ExpertForm> 
     </div> 
   );
