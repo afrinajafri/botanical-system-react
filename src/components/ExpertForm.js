@@ -211,9 +211,10 @@ export class ExpertForm extends Component {
       <React.Fragment>
         <Modal size= "lg" show={this.state.showResult} backdrop="static" keyboard={false}>
               {this.state.carePage === false && 
-              <Modal.Header> 
-               <Modal.Title>The perfect plant for you!</Modal.Title>
-              </Modal.Header>}
+              <div style={{paddingTop:"20px"}}>
+                <center><h2>The Perfect Plant for You!</h2></center>
+              </div>
+              }
 
               <Modal.Body>
                 {/* Woohoo, you're reading this text in a modal!  */} 
@@ -292,7 +293,7 @@ export class ExpertForm extends Component {
                 }
                 else{
                   return(
-                    <div>
+                    <div style={{textAlign: "justify", textJustify: "inter-word", paddingLeft: "20px", paddingRight: "20px"}}>
                       <center><h2>{item.name} Care</h2></center>
 
                       <br></br>
@@ -306,13 +307,23 @@ export class ExpertForm extends Component {
                         <b>Light Exposure: </b> {item.light}
                      </div>
 
-                     <div className="pt-2">
+                     <div className="pt-3">
                        <b>Watering Schedule: </b>{item.watering}
                      </div>
 
-                     <div className="pt-2">
+                     <div className="pt-3">
                        <b>Soil and Repotting: </b> {item.soil}
                      </div>
+
+                     <div className="pt-3">
+                       <b>Temperature and Humidity: </b> {item.temperature}
+                     </div>
+
+                     <div className="pt-3">
+                       <b>Fertilizer: </b> {item.fertilizer}
+                     </div>
+
+                     
 
                     </div>
                   )
@@ -339,7 +350,7 @@ export class ExpertForm extends Component {
                       <center><h2>{item.name}</h2></center>
                     </div>
                     
-                    <div className="mt-3">
+                    <div className="mt-3" style={{textAlign: "justify", textJustify: "inter-word", paddingLeft: "20px", paddingRight: "20px"}}>
                       <center><b>Plant Description:</b><p>{item.description}</p></center>
                     </div>  
                     
