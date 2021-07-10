@@ -245,7 +245,7 @@ export class ExpertForm extends Component {
                      })}}> 
                      Back 
                   </Button>
-                  <Button variant="secondary" onClick={()=>{
+                  <Button variant="danger" onClick={()=>{
 
                   alert ("Thank you for using this expert system! Happy planting!")
                   window.location.reload()}}>
@@ -293,7 +293,7 @@ export class ExpertForm extends Component {
                 }
                 else{
                   return(
-                    <div style={{textAlign: "justify", textJustify: "inter-word", paddingLeft: "20px", paddingRight: "20px"}}>
+                    <div style={{textAlign: "justify", textJustify: "inter-word", paddingLeft: "15px", paddingRight: "15px"}}>
                       <center><h2>{item.name} Care</h2></center>
 
                       <br></br>
@@ -316,7 +316,7 @@ export class ExpertForm extends Component {
                      </div>
 
                      <div className="pt-3">
-                       <b>Temperature and Humidity: </b> {item.temperature}
+                       <b>Temperature: </b> {item.temperature}
                      </div>
 
                      <div className="pt-3">
