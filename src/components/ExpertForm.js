@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {useHistory } from 'react-router-dom'
 import { Button, Card, Form, Modal } from 'react-bootstrap';
 import gif from "../images/giphy.gif"
 import gif2 from "../images/giphy2.gif"  
@@ -8,17 +7,11 @@ import botanical_list from "./json/botanical.json"
  
 export class ExpertForm extends Component {
     constructor(props) {
-        super(props) 
-
-        let is_seen = undefined;  
-
-        if (localStorage.getItem('is_seen')){ 
-          is_seen = localStorage.getItem('is_seen');
-        }   
+        super(props)  
     
         this.state = {
             plants_type: undefined,
-            light_exposure: "none",
+            light_exposure: undefined,
             have_pets_or_kids: undefined,
             watering_schedule: undefined,
             range_of_growth: undefined,
@@ -26,8 +19,7 @@ export class ExpertForm extends Component {
             season: undefined, 
             showIntro: true,
             showResult: false,
-            secondPage: false,
-            is_seen: false,
+            secondPage: false, 
             carePage: false,
             previousPage: false,
             currentResult: undefined,
@@ -43,10 +35,7 @@ export class ExpertForm extends Component {
             Botanist Expert System
             {/* <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{this.showResult()}}>
               View Previous Result
-            </Button>    */}
-          {localStorage.setItem("is_seen", this.state.is_seen)}
-
-          {console.log('curent', this.state.is_seen)}
+            </Button>    */} 
           </Card.Header>
           <Card.Body> 
           {this.introModal()}
@@ -96,7 +85,7 @@ export class ExpertForm extends Component {
                 value={this.state.light_exposure}
                 onChange={(e)=>{this.setState({light_exposure: e.target.value})}}
                 >
-                  <option className="mb-2 text-muted" value="none" selected disabled>----------- Please select one ----------- </option>
+                  <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
                   <option value="moderate_to_bright_light"  >Moderate to Bright</option>
                   <option value="moderate_to_dim_light" >Moderate to Dim</option>
               </select>
@@ -119,9 +108,10 @@ export class ExpertForm extends Component {
 
             }  
            
+           {this.returnDroughtTolerant()}
 
-          {
-            this.state.light_exposure === "moderate_to_bright_light" || this.state.light_exposure === "none" ?
+          {/* {
+            this.state.light_exposure === "moderate_to_bright_light" ?
             
             <Form.Group className="mt-4">
               <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
@@ -131,7 +121,25 @@ export class ExpertForm extends Component {
 
             :
             <div></div>
-          }
+          } 
+
+          {
+            this.state.season === "summer_season" ?
+            
+            <Form.Group className="mt-4">
+              <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+              <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
+              <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
+            </Form.Group>
+
+            :
+            <div></div>
+          } */}
+
+
+ 
+
+{/* this.state.season === undefined || this.state.season === "summer_season" */}
           
 
           { this.state.plants_type === "botanical_plant" ?
@@ -200,7 +208,33 @@ export class ExpertForm extends Component {
       }   
     }
 
-     
+    returnDroughtTolerant(){ 
+
+      if(this.state.plants_type === "ornamental_plant" || this.state.plants_type === undefined){
+        if(this.state.light_exposure === "moderate_to_bright_light" || this.state.light_exposure === undefined ){
+          return(
+            <Form.Group className="mt-4">
+                <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+                <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
+                <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
+              </Form.Group>
+          )
+        }
+
+      }
+      else if(this.state.plants_type === "botanical_plant"){
+        if(this.state.season === "summer_season" || this.state.season === undefined){
+          return(
+            <Form.Group className="mt-4">
+                <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+                <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
+                <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
+              </Form.Group>
+          )
+        }  
+      }
+  
+    } 
 
     resultModal(){
       
@@ -247,7 +281,7 @@ export class ExpertForm extends Component {
 
                   r = window.confirm("Are you sure want to close this system");
 
-                  if(r == true){
+                  if(r === true){
                     alert ("Thank you for using this expert system! Happy planting!");
                     window.location.reload();
                   }
@@ -435,9 +469,7 @@ export class ExpertForm extends Component {
       }
     }
 
-    introModal(){
-
-      if(this.state.is_seen === false){
+    introModal(){ 
       return(
         <React.Fragment>
           <Modal show={this.state.showIntro} onHide={()=>{this.handleShowIntro()}}>
@@ -490,8 +522,7 @@ export class ExpertForm extends Component {
             </Modal> 
             
       </React.Fragment>
-      )
-      }
+      ) 
     } 
 
     handleShow(){
@@ -499,7 +530,7 @@ export class ExpertForm extends Component {
     } 
 
     handleShowIntro(){
-      this.setState({showIntro:false, is_seen: true}) 
+      this.setState({showIntro:false}) 
     } 
 
     finalResult(){ 
