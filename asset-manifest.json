@@ -1,29 +1,29 @@
 {
   "files": {
     "main.css": "/btn-system/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/btn-system/static/js/main.f369cad3.chunk.js",
-    "main.js.map": "/btn-system/static/js/main.f369cad3.chunk.js.map",
-    "runtime-main.js": "/btn-system/static/js/runtime-main.89bc04d6.js",
-    "runtime-main.js.map": "/btn-system/static/js/runtime-main.89bc04d6.js.map",
+    "main.js": "/btn-system/static/js/main.8e202f1b.chunk.js",
+    "main.js.map": "/btn-system/static/js/main.8e202f1b.chunk.js.map",
+    "runtime-main.js": "/btn-system/static/js/runtime-main.eabd3a41.js",
+    "runtime-main.js.map": "/btn-system/static/js/runtime-main.eabd3a41.js.map",
     "static/css/2.7b1c032f.chunk.css": "/btn-system/static/css/2.7b1c032f.chunk.css",
-    "static/js/2.8c85e1ee.chunk.js": "/btn-system/static/js/2.8c85e1ee.chunk.js",
-    "static/js/2.8c85e1ee.chunk.js.map": "/btn-system/static/js/2.8c85e1ee.chunk.js.map",
-    "static/js/3.470abd41.chunk.js": "/btn-system/static/js/3.470abd41.chunk.js",
-    "static/js/3.470abd41.chunk.js.map": "/btn-system/static/js/3.470abd41.chunk.js.map",
+    "static/js/2.979f03fd.chunk.js": "/btn-system/static/js/2.979f03fd.chunk.js",
+    "static/js/2.979f03fd.chunk.js.map": "/btn-system/static/js/2.979f03fd.chunk.js.map",
+    "static/js/3.deb603cc.chunk.js": "/btn-system/static/js/3.deb603cc.chunk.js",
+    "static/js/3.deb603cc.chunk.js.map": "/btn-system/static/js/3.deb603cc.chunk.js.map",
     "index.html": "/btn-system/index.html",
     "static/css/2.7b1c032f.chunk.css.map": "/btn-system/static/css/2.7b1c032f.chunk.css.map",
     "static/css/main.9d5b29c0.chunk.css.map": "/btn-system/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.8c85e1ee.chunk.js.LICENSE.txt": "/btn-system/static/js/2.8c85e1ee.chunk.js.LICENSE.txt",
+    "static/js/2.979f03fd.chunk.js.LICENSE.txt": "/btn-system/static/js/2.979f03fd.chunk.js.LICENSE.txt",
     "static/media/bg.fb017ad8.jpg": "/btn-system/static/media/bg.fb017ad8.jpg",
     "static/media/giphy.4fea5444.gif": "/btn-system/static/media/giphy.4fea5444.gif",
     "static/media/giphy2.0980127e.gif": "/btn-system/static/media/giphy2.0980127e.gif",
     "static/media/logo.6ce24c58.svg": "/btn-system/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.89bc04d6.js",
+    "static/js/runtime-main.eabd3a41.js",
     "static/css/2.7b1c032f.chunk.css",
-    "static/js/2.8c85e1ee.chunk.js",
+    "static/js/2.979f03fd.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.f369cad3.chunk.js"
+    "static/js/main.8e202f1b.chunk.js"
   ]
 }
