@@ -118,25 +118,19 @@ export class ExpertForm extends Component {
               
 
             }  
-          
-          {
-            this.state.light_exposure === "none" &&
-            
-            <Form.Group className="mt-4">
-              <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
-              <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
-              <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
-            </Form.Group>
-          }
+           
 
-{
-            this.state.light_exposure === "moderate_to_bright_light" &&
+          {
+            this.state.light_exposure === "moderate_to_bright_light" || this.state.light_exposure === "none" ?
             
             <Form.Group className="mt-4">
               <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
               <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
               <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
             </Form.Group>
+
+            :
+            <div></div>
           }
           
 
