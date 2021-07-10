@@ -6,7 +6,7 @@
     "temperature": "Between 18 and 25 °C and it will not support cold below 7 °C",
     "fertilizer": "Fiddle Leaf Figs prefer fertilizers with an NPK ratio of 3-1-2."},
     
-    {"name":"Monstera", "plantImage": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1205923822-612x612-1597694031.jpg","careImage": "https://bloomscape.com/wp-content/uploads/2019/11/bloomscape_peopleplants_monstera-scaled.jpg?ver=94540", 
+    {"name":"Monstera", "plantImage": "https://www.ikea.com/my/en/images/products/monstera-deliciosa-potted-plant-swiss-cheese-plant__0554567_pe659828_s5.jpg?f=s","careImage": "https://bloomscape.com/wp-content/uploads/2019/11/bloomscape_peopleplants_monstera-scaled.jpg?ver=94540", 
     "description": "Monstera are species of evergreen tropical vines and shrubs that are native to Central America. They are famous for their natural leaf-holes, which has led to the rise of their nickname, Swiss Cheese Plant.", 
     "light": "Thrives in bright to medium indirect light. Not suited for intense, direct sun but can be acclimated to withstand it.",
     "watering": "Water every 1-2 weeks, allowing soil to dry out between waterings. Expect to water more often in brighter light and less often in lower light. Pro tip: Monsteras can benefit from filtered water or water left out overnight before using. ",
@@ -30,13 +30,13 @@
     "temperature": "Between 65-80 degrees",
     "fertilizer": "Calathea do not need a lot of fertilizing, but they will flower and do well with standard houseplant fertilizer during spring, summer and fall. They especially need fertilization during periods of growth and flowering."},
     
-    {"name":"Succulent", "plantImage": "https://www.gardeningknowhow.com/wp-content/uploads/2015/09/succulent.jpg","careImage": "https://media.architecturaldigest.com/photos/60d35a32f1a2fba3453a0bc5/1:1/w_1280%2Cc_limit/Screen%252520Shot%2525202021-06-23%252520at%25252011.58.07%252520AM.png",
+    {"name":"Succulent", "plantImage": "https://www.gardeningknowhow.com/wp-content/uploads/2015/09/succulent.jpg","careImage": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1135631645.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=640:*",
     "description": "Succulents are plants with fleshy, thickened leaves and/or swollen stems that store water. The word “succulent” comes from the Latin word sucus, meaning juice or sap. Succulents are able to survive on limited water resources, such as dew and mist, making them tolerant of drought. There are many different species and cultivars of succulents spanning several plant families, and most people associate succulents with Cactaceae, the cactus family. (Keep in mind, however, that while all cacti are succulents, not all succulents are cacti.)", 
     "light": "Thrives in bright direct light, but can tolerate bright indirect light. (Learn more about light requirements here)",
     "watering": "Size matters, but generally speaking, you can water these plants every 2-3 weeks, allowing soil to dry out between waterings. Expect to water more often in brighter light and less often in lower light. Always be sure to research watering requirements for your specific succulent. ",
     "soil": "Succulents need soil that drains, so regular potting soil—or dirt from your yard—won't do. Choose cactus soil or mix potting soil with sand, pumice, or perlite. Succulent roots are very fragile so be gentle when repotting.",
-    "temperature": "",
-    "fertilizer": ""},
+    "temperature": "Between 60 to 80°F. Some can tolerate temperatures as low as 40°F or as high as 90°F. ",
+    "fertilizer": "A light feeding of manure tea, diluted fish emulsion, or a balanced fertilizer (15-15-15) help succulents grow lush and lovely."},
 
     {"name":"Bougainvillea", "plantImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bougainvillea_closeup.jpg/1200px-Bougainvillea_closeup.jpg","careImage": "https://www.thespruce.com/thmb/FitTecB1NEsdW7W-9jtsHLmVnPE=/2445x1834/smart/filters:no_upscale()/kararileybougainvillea-13-crop-6a0a6aff8437470c93acb2d21f626d78.jpg", 
     "description": "Bougainvillea is a genus of thorny ornamental vines, bushes, and trees belonging to the four o' clock family, Nyctaginaceae. It is native to eastern South America, found from Brazil, west to Peru, and south to southern Argentina. Different authors accept from 4 to 18 species in the genus.", 
@@ -54,7 +54,7 @@
     "temperature": "Between 65-80 degrees.",
     "fertilizer": "These easy to maintain plants can work well in almost any type of fertilizer. However, it is always better to use natural fertilizers like rotted cow manure, compost, and chicken manure."},
 
-    {"name":"Garden Balsam", "plantImage": "https://cf.shopee.com.my/file/97888e39895f81ace899d3120a7b5e2c","careImage": "https://cdn.calyxflowers.com/uploads/impatiensbal.jpg", 
+    {"name":"Garden Balsam", "plantImage": "https://upload.wikimedia.org/wikipedia/commons/7/78/Impatiens_balsamina_28_08_2009.JPG","careImage": "https://cdn.calyxflowers.com/uploads/impatiensbal.jpg", 
     "description": "Impatiens balsamina, commonly known as balsam, garden balsam, rose balsam, touch-me-not or spotted snapweed, is a species of plant native to India and Myanmar. It is an annual plant growing to 20–75 cm tall, with a thick, but soft stem.", 
     "light": "These flowers grow well in both full sun and partial shade. The best growing site offers some protection from strong afternoon sun, which can cause browning of the foliage. Balsam flowers can survive in full shade, though their blooms will likely be sparse in those conditions.",
     "watering": "Conversely, they don't tolerate drought well and will usually stop flowering if they don't get enough water. Water whenever the top inch or two of soil feels dry to the touch, but avoid overwatering and causing your plants to become waterlogged.",
