@@ -247,9 +247,23 @@ export class ExpertForm extends Component {
                   </Button>
                   <Button variant="danger" onClick={()=>{
 
-                  alert ("Thank you for using this expert system! Happy planting!")
-                  window.location.reload()}}>
+                  let r = undefined;
+
+                  r = window.confirm("Are you sure want to close this system");
+
+                  if(r == true){
+                    alert ("Thank you for using this expert system! Happy planting!");
+                    window.location.reload();
+                  }
+
+                  else{
+                    return;
+                  } 
+                   }}>
                   Close
+
+                   
+
                   </Button> 
                   </React.Fragment> 
                    
@@ -304,23 +318,43 @@ export class ExpertForm extends Component {
                      
 
                      <div className="pt-4">
-                        <b>Light Exposure: </b> {item.light}
+                        <b>Light Exposure: </b> 
+                     </div>
+
+                     <div>
+                       {item.light}
                      </div>
 
                      <div className="pt-3">
-                       <b>Watering Schedule: </b>{item.watering}
+                       <b>Watering Schedule: </b>
+                     </div>
+
+                     <div>
+                       {item.watering}
                      </div>
 
                      <div className="pt-3">
-                       <b>Soil and Repotting: </b> {item.soil}
+                       <b>Soil and Repotting: </b> 
+                     </div>
+
+                     <div>
+                       {item.soil}
                      </div>
 
                      <div className="pt-3">
-                       <b>Temperature: </b> {item.temperature}
+                       <b>Temperature: </b> 
+                     </div>
+
+                     <div>
+                       {item.temperature}
                      </div>
 
                      <div className="pt-3">
-                       <b>Fertilizer: </b> {item.fertilizer}
+                       <b>Fertilizer: </b> 
+                     </div>
+
+                     <div>
+                       {item.fertilizer}
                      </div>
 
                      
@@ -370,12 +404,28 @@ export class ExpertForm extends Component {
                      
 
                      <div className="pt-4">
-                        <b>Planting Location: </b> {item.location}
+                        <b>Planting Location: </b>  
+                     </div>
+
+                     <div>
+                     {item.location}
                      </div>
 
                      <div className="pt-3">
-                       <b>Fertilization Schedule: </b>{item.schedule}
+                       <b>Fertilization Schedule/Type: </b>
                      </div> 
+
+                     <div>
+                       {item.fertilization}
+                     </div>
+
+                     <div className="pt-3">
+                       <b>Type of Soil: </b>
+                     </div> 
+
+                     <div>
+                       {item.soil}
+                     </div>
 
                     </div>
                   )
