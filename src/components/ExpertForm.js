@@ -23,7 +23,7 @@ export class ExpertForm extends Component {
             watering_schedule: undefined,
             range_of_growth: undefined,
             drought_tolerant: undefined,
-            season: undefined,
+            season: undefined, 
             showIntro: true,
             showResult: false,
             secondPage: false,
@@ -183,24 +183,32 @@ export class ExpertForm extends Component {
       let result = this.finalResult(); 
 
       this.setState({showResult:true, currentResult: result})
+ 
+      // plants_type: undefined,
+      //       light_exposure: undefined,
+      //       have_pets_or_kids: undefined,
+      //       watering_schedule: undefined,
+      //       range_of_growth: undefined,
+      //       drought_tolerant: undefined,
+      //       season: undefined,
 
+      // || 
+        // this.state.light_exposure === undefined || 
+        // this.state.have_pets_or_kids === undefined ||
+        // this.state.watering_schedule === undefined ||
+        // this.state.range_of_growth === undefined ||
+        // this.state.drought_tolerant === undefined ||
+        // this.state.season == undefined
       
-      // if(
-      //   this.state.plants_type === undefined || 
-      //   this.state.light_exposure === undefined || 
-      //   this.state.have_pets_or_kids === undefined ||
-      //   this.state.watering_schedule === undefined ||
-      //   this.state.range_of_growth === undefined ||
-      //   this.state.drought_tolerant === undefined 
-      //    )
-      //   {
-      //     alert ("Please fill out all of the questions")
-      //     this.setState({showResult:false})
-      //   }
-      // else{
-      //     this.setState({showResult:true, currentResult: result})
-      // }  
-         this.setState({showResult:true, currentResult: result})
+      if( result === undefined){
+        alert ("Please fill out all of the questions")
+        this.setState({showResult:false})
+      } 
+
+      else{
+          this.setState({showResult:true, currentResult: result})
+      }  
+        //  this.setState({showResult:true, currentResult: result})
     }
 
      
