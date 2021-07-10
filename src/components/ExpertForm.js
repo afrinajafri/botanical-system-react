@@ -359,7 +359,7 @@ export class ExpertForm extends Component {
                 }
                 else{
                   return(
-                    <div>
+                    <div style={{textAlign: "justify", textJustify: "inter-word", paddingLeft: "15px", paddingRight: "15px"}}>
                       <center><h2>{item.name} Care</h2></center>
 
                       <br></br>
@@ -373,7 +373,7 @@ export class ExpertForm extends Component {
                         <b>Planting Location: </b> {item.location}
                      </div>
 
-                     <div className="pt-2">
+                     <div className="pt-3">
                        <b>Fertilization Schedule: </b>{item.schedule}
                      </div> 
 
