@@ -18,7 +18,7 @@ export class ExpertForm extends Component {
     
         this.state = {
             plants_type: undefined,
-            light_exposure: undefined,
+            light_exposure: "none",
             have_pets_or_kids: undefined,
             watering_schedule: undefined,
             range_of_growth: undefined,
@@ -34,7 +34,8 @@ export class ExpertForm extends Component {
         }
     }
 
-    render() {  
+    render() {   
+
         return (  
           <Card className="" style={{marginLeft:250, marginRight:250}}>  
           <Card.Header as="h1">   
@@ -97,7 +98,7 @@ export class ExpertForm extends Component {
                 value={this.state.light_exposure}
                 onChange={(e)=>{this.setState({light_exposure: e.target.value})}}
                 >
-                  <option className="mb-2 text-muted" selected disabled>----------- Please select one ----------- </option>
+                  <option className="mb-2 text-muted" value="none" selected disabled>----------- Please select one ----------- </option>
                   <option value="moderate_to_bright_light"  >Moderate to Bright</option>
                   <option value="moderate_to_dim_light" >Moderate to Dim</option>
               </select>
@@ -118,14 +119,28 @@ export class ExpertForm extends Component {
               </React.Fragment>
               
 
-            } 
+            }  
+          
+          {
+            this.state.light_exposure === "none" &&
             
-
-          <Form.Group className="mt-4">
+            <Form.Group className="mt-4">
               <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
               <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
               <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
-          </Form.Group>
+            </Form.Group>
+          }
+
+{
+            this.state.light_exposure === "moderate_to_bright_light" &&
+            
+            <Form.Group className="mt-4">
+              <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+              <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
+              <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
+            </Form.Group>
+          }
+          
 
           { this.state.plants_type === "botanical_plant" ?
             <div className="mt-4"> 
@@ -182,24 +197,7 @@ export class ExpertForm extends Component {
 
       let result = this.finalResult(); 
 
-      this.setState({showResult:true, currentResult: result})
- 
-      // plants_type: undefined,
-      //       light_exposure: undefined,
-      //       have_pets_or_kids: undefined,
-      //       watering_schedule: undefined,
-      //       range_of_growth: undefined,
-      //       drought_tolerant: undefined,
-      //       season: undefined,
-
-      // || 
-        // this.state.light_exposure === undefined || 
-        // this.state.have_pets_or_kids === undefined ||
-        // this.state.watering_schedule === undefined ||
-        // this.state.range_of_growth === undefined ||
-        // this.state.drought_tolerant === undefined ||
-        // this.state.season == undefined
-      
+      this.setState({showResult:true, currentResult: result}) 
       if( result === undefined){
         alert ("Please fill out all of the questions")
         this.setState({showResult:false})
@@ -207,8 +205,7 @@ export class ExpertForm extends Component {
 
       else{
           this.setState({showResult:true, currentResult: result})
-      }  
-        //  this.setState({showResult:true, currentResult: result})
+      }   
     }
 
      
@@ -224,8 +221,7 @@ export class ExpertForm extends Component {
               </div>
               }
 
-              <Modal.Body>
-                {/* Woohoo, you're reading this text in a modal!  */} 
+              <Modal.Body> 
               {this.showResult()} 
               
               </Modal.Body>
@@ -299,9 +295,9 @@ export class ExpertForm extends Component {
                 if(this.state.carePage === false){
                   return(
                   <div> 
-                    <div style={{paddingLeft:"130px"}}>
-                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
-                    </div>
+                    <center>
+                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px", objectFit:"cover"}}></img>
+                    </center>
                     <div>
                       <center><h2>{item.name}</h2></center>
                     </div>
@@ -320,9 +316,9 @@ export class ExpertForm extends Component {
 
                       <br></br>
                       
-                      <div style={{paddingLeft:"130px"}}>
-                      <img src={item.careImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
-                     </div>
+                      <center>
+                      <img src={item.careImage} className= "img-responsive" style={{ width:"500px", height:"500px", objectFit:"cover"}}></img>
+                     </center>
                      
 
                      <div className="pt-4">
@@ -385,9 +381,9 @@ export class ExpertForm extends Component {
                 if(this.state.carePage === false){
                   return(
                   <div> 
-                    <div style={{paddingLeft:"130px"}}>
-                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
-                    </div>
+                    <center>
+                      <img src={item.plantImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px", objectFit:"cover"}}></img>
+                    </center>
                     <div>
                       <center><h2>{item.name}</h2></center>
                     </div>
@@ -406,9 +402,9 @@ export class ExpertForm extends Component {
 
                       <br></br>
                       
-                      <div style={{paddingLeft:"130px"}}>
-                      <img src={item.careImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px"}}></img>
-                     </div>
+                      <center>
+                      <img src={item.careImage} className= "img-responsive" style={{maxHeight: "500px", maxWidth: "500px", objectFit:"cover"}}></img>
+                     </center>
                      
 
                      <div className="pt-4">
