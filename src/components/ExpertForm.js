@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Button, Card, Form, Modal } from 'react-bootstrap';
-import gif from "../images/giphy.gif"
-import gif2 from "../images/giphy2.gif"  
-import ornamental_list from "./json/ornamental.json"
-import botanical_list from "./json/botanical.json"
+import gif from "../images/giphy.gif";
+import gif2 from "../images/giphy2.gif"  ;
+import ornamental_list from "./json/ornamental.json";
+import botanical_list from "./json/botanical.json";
+import ReactTooltip from 'react-tooltip';
+import { FcInfo } from 'react-icons/fc';
  
 export class ExpertForm extends Component {
     constructor(props) {
@@ -23,6 +25,7 @@ export class ExpertForm extends Component {
             carePage: false,
             previousPage: false,
             currentResult: undefined,
+            place:undefined
         }
     }
 
@@ -32,10 +35,7 @@ export class ExpertForm extends Component {
           <Card className="" style={{marginLeft:250, marginRight:250}}>  
           <Card.Header as="h1">   
 
-            Botanist Expert System
-            {/* <Button style={{float: 'right', marginTop:5}} variant="success" type="button" onClick={()=>{this.showResult()}}>
-              View Previous Result
-            </Button>    */} 
+            Botanist Expert System 
           </Card.Header>
           <Card.Body> 
           {this.introModal()}
@@ -45,7 +45,15 @@ export class ExpertForm extends Component {
             }}> 
 
 
-            <Form.Label >Type of Plants</Form.Label>
+            <div className="row">
+              <Form.Label >Type of Plants
+              <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="You can choose either Ornamental Plants (indoor plants) or Botanical Plants (outdoor plants)"><FcInfo /></a>  
+              <ReactTooltip /> </Form.Label>
+            </div> 
+             
               <select 
               className="form-select"  
               value={this.state.plants_type}
@@ -58,6 +66,11 @@ export class ExpertForm extends Component {
 
             <Form.Group className="mt-4">
               <Form.Label >Do you have pets or kids at home?</Form.Label>
+              <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="This question is for pets and kids' safety purposes"><FcInfo /></a>  
+              <ReactTooltip />
               
               <Form.Check  type={"radio"} name="have_pets_or_kids" label="Yes" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'yes'})}}/> 
               <Form.Check  type={"radio"} name="have_pets_or_kids" label="No" value={this.state.have_pets_or_kids} onClick={()=>{this.setState({have_pets_or_kids: 'no'})}}/> 
@@ -66,6 +79,12 @@ export class ExpertForm extends Component {
             { this.state.plants_type === "botanical_plant" ?
               <div className="mt-4"> 
               <Form.Label >Seasons</Form.Label>
+              <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="When do you plan to grow your plants?"><FcInfo /></a>  
+              <ReactTooltip />
+              
                 <select 
                 className="form-select"  
                 value={this.state.season}
@@ -80,6 +99,11 @@ export class ExpertForm extends Component {
               <React.Fragment>
                 <div className="mt-4"> 
               <Form.Label >Light Exposure</Form.Label>
+              <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="Describe your place/area exposure to sunlight"><FcInfo /></a>  
+              <ReactTooltip />
                 <select 
                 className="form-select"  
                 value={this.state.light_exposure}
@@ -93,6 +117,11 @@ export class ExpertForm extends Component {
 
               <div className="mt-4">  
               <Form.Label>Watering Schedule</Form.Label>
+              <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="How often can you commit to your plants?"><FcInfo /></a>  
+              <ReactTooltip />
                 <select 
                 className="form-select"  
                 value={this.state.watering_schedule}
@@ -145,6 +174,11 @@ export class ExpertForm extends Component {
           { this.state.plants_type === "botanical_plant" ?
             <div className="mt-4"> 
             <Form.Label>Range of Growth</Form.Label>
+            <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="What is your preffered duration of plant's growth?"><FcInfo /></a>  
+              <ReactTooltip />
               <select 
               className="form-select"  
               value={this.state.range_of_growth}
@@ -158,6 +192,11 @@ export class ExpertForm extends Component {
               :
             <div className="mt-4"> 
             <Form.Label>Range of Growth</Form.Label>
+            <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="What is your preffered duration of plant's growth?"><FcInfo /></a>  
+              <ReactTooltip />
               <select 
               className="form-select"  
               value={this.state.range_of_growth}
@@ -214,7 +253,13 @@ export class ExpertForm extends Component {
         if(this.state.light_exposure === "moderate_to_bright_light" || this.state.light_exposure === undefined ){
           return(
             <Form.Group className="mt-4">
+               
                 <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+                <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="Are your area/place too dry?"><FcInfo /></a>  
+              <ReactTooltip />
                 <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
                 <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
               </Form.Group>
@@ -227,6 +272,11 @@ export class ExpertForm extends Component {
           return(
             <Form.Group className="mt-4">
                 <Form.Label>Do you want your plant to be tolerant to drought?</Form.Label>
+                <a 
+              style={{paddingLeft:5,marginBottom:20}}
+              data-place="right"
+              data-tip="Are your area/place too dry?"><FcInfo /></a>  
+              <ReactTooltip />
                 <Form.Check  type={"radio"} name="drought_tolerant" label="Yes" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'yes'})}}/> 
                 <Form.Check  type={"radio"} name="drought_tolerant" label="No" value={this.state.drought_tolerant} onClick={()=>{this.setState({drought_tolerant: 'no'})}}/> 
               </Form.Group>
